@@ -11,11 +11,7 @@ const MealItemForm = (props) => {
     event.preventDefault();
 
     const inputAmount = amountInputRef.current.value;
-    if (
-      inputAmount.trim().length === 0 ||
-      +inputAmount < 1 ||
-      +inputAmount > 10
-    ) {
+    if (inputAmount.trim().length === 0 || +inputAmount < 1 || +inputAmount > 10) {
       setIsAmountValid(false);
       return;
     }
@@ -27,7 +23,7 @@ const MealItemForm = (props) => {
     <form className={styles.form} onSubmit={submitHandler}>
       <Input
         ref={amountInputRef}
-        label="Количество"
+        label="Number"
         input={{
           id: props.id,
           type: 'number',
@@ -36,8 +32,8 @@ const MealItemForm = (props) => {
           defaultValue: '1',
         }}
       />
-      <button>Добавить</button>
-      {!isAmountValid && <p>Пожалуйста введите количество от 1 до 10</p>}
+      <button>Add</button>
+      {!isAmountValid && <p>Please enter number from 1 to 10</p>}
     </form>
   );
 };
